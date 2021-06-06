@@ -1,0 +1,45 @@
+catkin build
+roslaunch dronemk_bringup DroneMk_sim.launch
+guided
+arm
+takeoff
+rostopic list
+rostopic info /d435/depth/pcd
+rostopic echo /d435/depth/pcd
+catkin_create_pkg
+catkin_create_pkg Tesi roscpp rospy tf tf2
+rostopic pub mavros/setpoint_position/local geometry_msgs/PoseStamped "header:
+	seq: 0
+	stamp:
+		secs: 0
+		nsecs: 0
+	frame_id: ''
+pose:
+	position:
+		x: 0.0
+		y: 2.0
+		z: 2.0
+	orientation:
+		x: 0.0
+		y: 0.0
+		z: 0.0
+		w: 1.0" 
+		
+		
+rostopic pub mavros/setpoint_position/local geometry_msgs/PoseStamped "header:
+  seq: 0
+  stamp:
+    secs: 0
+    nsecs: 0
+  frame_id: ''
+pose:
+  position:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0" 
+
